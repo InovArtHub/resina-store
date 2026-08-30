@@ -23,6 +23,8 @@
             color: #222;
         }
 
+        /* HEADER */
+
         header {
             background: white;
             padding: 20px 8%;
@@ -33,15 +35,31 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             font-size: 24px;
             font-weight: bold;
+        }
+
+        .logo img {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
         }
 
         nav a {
             text-decoration: none;
             color: #222;
             margin-left: 25px;
+            font-weight: 500;
         }
+
+        nav a:hover {
+            color: #8e44ad;
+        }
+
+        /* CONTENIDO */
 
         .container {
             padding: 60px 8%;
@@ -55,6 +73,10 @@
             font-weight: bold;
         }
 
+        .back:hover {
+            text-decoration: underline;
+        }
+
         h1 {
             text-align: center;
             margin-bottom: 15px;
@@ -65,7 +87,10 @@
             text-align: center;
             color: #666;
             margin-bottom: 50px;
+            font-size: 18px;
         }
+
+        /* PRODUCTOS */
 
         .products {
             display: grid;
@@ -95,6 +120,8 @@
             color: #666;
         }
 
+        /* FOOTER */
+
         footer {
             margin-top: 60px;
             background: #222;
@@ -102,6 +129,12 @@
             padding: 40px 8%;
             text-align: center;
         }
+
+        footer p {
+            margin-bottom: 8px;
+        }
+
+        /* RESPONSIVE */
 
         @media (max-width: 900px) {
 
@@ -122,6 +155,10 @@
                 margin: 0 8px;
             }
 
+            .container {
+                padding: 40px 5%;
+            }
+
             h1 {
                 font-size: 32px;
             }
@@ -136,18 +173,32 @@
 
 </head>
 
+
 <body>
+
+
+    <!-- HEADER -->
 
     <header>
 
         <div class="logo">
-            ResinStore
+
+            <img src="Resinlogo.png" alt="ResinStore">
+
+            <span>
+                ResinStore
+            </span>
+
         </div>
 
         <nav>
 
             <a href="index.html">
                 Inicio
+            </a>
+
+            <a href="index.html#categorias">
+                Categorías
             </a>
 
             <a href="index.html#contacto">
@@ -159,20 +210,26 @@
     </header>
 
 
+    <!-- CONTENIDO -->
+
     <main class="container">
 
-        <a href="index.html" class="back">
-            ← Volver al inicio
+        <a href="index.html#categorias" class="back">
+            ← Volver a categorías
         </a>
+
 
         <h1>
             Resina UV
         </h1>
 
+
         <p class="description">
             Explora nuestras opciones de resina UV.
         </p>
 
+
+        <!-- PRODUCTOS -->
 
         <div class="products">
 
@@ -197,13 +254,20 @@
     </main>
 
 
+    <!-- FOOTER -->
+
     <footer>
 
         <p>
             © 2026 ResinStore
         </p>
 
+        <p>
+            Todos los derechos reservados.
+        </p>
+
     </footer>
+
 
 </body>
 
