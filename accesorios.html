@@ -98,26 +98,62 @@
             gap: 25px;
         }
 
-        .empty {
-            grid-column: 1 / -1;
+        .product {
             background: white;
-            padding: 60px 20px;
-            text-align: center;
             border-radius: 12px;
+            overflow: hidden;
             box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
         }
 
-        .empty-icon {
-            font-size: 60px;
-            margin-bottom: 20px;
+        .product:hover {
+            transform: translateY(-5px);
         }
 
-        .empty h2 {
+        .product-image {
+            height: 220px;
+            background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 70px;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h2 {
+            font-size: 20px;
             margin-bottom: 10px;
         }
 
-        .empty p {
+        .presentation {
             color: #666;
+            font-size: 16px;
+        }
+
+        .price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #8e44ad;
+            margin: 15px 0;
+        }
+
+        .buy-btn {
+            display: block;
+            width: 100%;
+            background: #8e44ad;
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .buy-btn:hover {
+            background: #732d91;
         }
 
         /* FOOTER */
@@ -233,21 +269,316 @@
 
         <div class="products">
 
-            <div class="empty">
 
-                <div class="empty-icon">
-                    🛠️
+            <!-- MOLDES ESFERICOS -->
+
+            <div class="product">
+
+                <div class="product-image">
+                    🟣
                 </div>
 
-                <h2>
-                    Próximamente
-                </h2>
+                <div class="product-info">
 
-                <p>
-                    Estamos preparando nuestros productos y accesorios.
-                </p>
+                    <h2>
+                        Moldes Esféricos
+                    </h2>
+
+                    <p class="presentation">
+                        Accesorio para resina
+                    </p>
+
+                    <div class="price">
+                        ₡750
+                    </div>
+
+                    <a href="#" class="buy-btn">
+                        Comprar
+                    </a>
+
+                </div>
 
             </div>
+
+
+            <!-- MOLDE HUEVO -->
+
+            <div class="product">
+
+                <div class="product-image">
+                    🥚
+                </div>
+
+                <div class="product-info">
+
+                    <h2>
+                        Molde huevo
+                    </h2>
+
+                    <p class="presentation">
+                        Molde para resina
+                    </p>
+
+                    <div class="price">
+                        ₡2,000
+                    </div>
+
+                    <a href="#" class="buy-btn">
+                        Comprar
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- MOLDE MADRE EMBARAZADA -->
+
+            <div class="product">
+
+                <div class="product-image">
+                    🤰
+                </div>
+
+                <div class="product-info">
+
+                    <h2>
+                        Molde madre embarazada
+                    </h2>
+
+                    <p class="presentation">
+                        Molde para resina
+                    </p>
+
+                    <div class="price">
+                        ₡2,500
+                    </div>
+
+                    <a href="#" class="buy-btn">
+                        Comprar
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- MOLDE MARIA -->
+
+            <div class="product">
+
+                <div class="product-image">
+                    👩
+                </div>
+
+                <div class="product-info">
+
+                    <h2>
+                        Molde María
+                    </h2>
+
+                    <p class="presentation">
+                        Molde para resina
+                    </p>
+
+                    <div class="price">
+                        ₡2,500
+                    </div>
+
+                    <a href="#" class="buy-btn">
+                        Comprar
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- MOLDE RECUERDO DOG -->
+
+            <div class="product">
+
+                <div class="product-image">
+                    🐶
+                </div>
+
+                <div class="product-info">
+
+                    <h2>
+                        Molde Recuerdo Dog
+                    </h2>
+
+                    <p class="presentation">
+                        Molde para resina
+                    </p>
+
+                    <div class="price">
+                        ₡2,500
+                    </div>
+
+                    <a href="#" class="buy-btn">
+                        Comprar
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PAQUETES GLITTER -->
+
+            <div class="product">
+
+                <div class="product-image">
+                    ✨
+                </div>
+
+                <div class="product-info">
+
+                    <h2>
+                        Paquetes Glitter
+                    </h2>
+
+                    <p class="presentation">
+                        Glitter para resina
+                    </p>
+
+                    <div class="price">
+                        ₡1,000
+                    </div>
+
+                    <a href="#" class="buy-btn">
+                        Comprar
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- CIERRE DE LANGOSTA Y ARGOLLA -->
+
+            <div class="product">
+
+                <div class="product-image">
+                    🔗
+                </div>
+
+                <div class="product-info">
+
+                    <h2>
+                        Cierre de langosta y argolla
+                    </h2>
+
+                    <p class="presentation">
+                        Accesorio para llaveros
+                    </p>
+
+                    <div class="price">
+                        ₡250
+                    </div>
+
+                    <a href="#" class="buy-btn">
+                        Comprar
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACCESORIO LLAVERO -->
+
+            <div class="product">
+
+                <div class="product-image">
+                    🔑
+                </div>
+
+                <div class="product-info">
+
+                    <h2>
+                        Accesorio llavero
+                    </h2>
+
+                    <p class="presentation">
+                        Accesorio para llaveros
+                    </p>
+
+                    <div class="price">
+                        ₡350
+                    </div>
+
+                    <a href="#" class="buy-btn">
+                        Comprar
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PIEDRA CRISTAL 1 -->
+
+            <div class="product">
+
+                <div class="product-image">
+                    💎
+                </div>
+
+                <div class="product-info">
+
+                    <h2>
+                        Piedra cristal
+                    </h2>
+
+                    <p class="presentation">
+                        Accesorio decorativo
+                    </p>
+
+                    <div class="price">
+                        ₡1,000
+                    </div>
+
+                    <a href="#" class="buy-btn">
+                        Comprar
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PIEDRA CRISTAL 2 -->
+
+            <div class="product">
+
+                <div class="product-image">
+                    💎
+                </div>
+
+                <div class="product-info">
+
+                    <h2>
+                        Piedra cristal
+                    </h2>
+
+                    <p class="presentation">
+                        Accesorio decorativo
+                    </p>
+
+                    <div class="price">
+                        ₡1,000
+                    </div>
+
+                    <a href="#" class="buy-btn">
+                        Comprar
+                    </a>
+
+                </div>
+
+            </div>
+
 
         </div>
 
