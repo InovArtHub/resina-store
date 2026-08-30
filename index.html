@@ -121,6 +121,11 @@
             border-radius: 12px;
             box-shadow: 0 3px 15px rgba(0,0,0,0.08);
             transition: transform 0.2s;
+            
+            /* IMPORTANTE: permite que la tarjeta completa sea un enlace */
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
         .category:hover {
@@ -246,7 +251,7 @@
         </div>
 
         <nav>
-            <a href="#">Inicio</a>
+            <a href="index.html">Inicio</a>
             <a href="#categorias">Categorías</a>
             <a href="#contacto">Contacto</a>
         </nav>
@@ -288,7 +293,10 @@
 
         <div class="categories">
 
-            <div class="category">
+
+            <!-- RESINA UV -->
+
+            <a href="UV" class="category">
 
                 <div class="category-icon">
                     💎
@@ -302,10 +310,12 @@
                     Resinas UV para tus proyectos.
                 </p>
 
-            </div>
+            </a>
 
 
-            <div class="category">
+            <!-- RESINA EPOXY -->
+
+            <a href="Epoxy" class="category">
 
                 <div class="category-icon">
                     🧪
@@ -319,10 +329,12 @@
                     Resina para diferentes aplicaciones.
                 </p>
 
-            </div>
+            </a>
 
 
-            <div class="category">
+            <!-- PIGMENTOS -->
+
+            <a href="pigmentos" class="category">
 
                 <div class="category-icon">
                     🎨
@@ -336,10 +348,12 @@
                     Colores y pigmentos para tus creaciones.
                 </p>
 
-            </div>
+            </a>
 
 
-            <div class="category">
+            <!-- ACCESORIOS -->
+
+            <a href="Accesorios" class="category">
 
                 <div class="category-icon">
                     🛠️
@@ -353,7 +367,8 @@
                     Herramientas y accesorios.
                 </p>
 
-            </div>
+            </a>
+
 
         </div>
 
@@ -375,6 +390,7 @@
 
 
         <div class="social-links">
+
 
             <!-- FACEBOOK -->
 
@@ -402,6 +418,7 @@
             >
                 <i class="fa-brands fa-whatsapp"></i>
             </a>
+
 
         </div>
 
