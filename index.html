@@ -1,90 +1,443 @@
-<!-- CATEGORIAS -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<section class="section" id="categorias">
+    <title>ResinStore</title>
 
-    <h2 class="section-title">
-        Explora nuestras categorías
-    </h2>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <div class="categories">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f7f7;
+            color: #222;
+        }
+
+        /* HEADER */
+
+        header {
+            background: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #222;
+            margin-left: 25px;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #8e44ad;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            background: linear-gradient(
+                135deg,
+                #f6e8ff,
+                #ffffff
+            );
+
+            padding: 60px 20px;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #8e44ad;
+            color: white;
+            padding: 14px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #732d91;
+        }
+
+        /* CATEGORIAS */
+
+        .section {
+            padding: 70px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .category {
+            background: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
+
+            /* Permite que la tarjeta completa sea un enlace */
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .category h3 {
+            margin-bottom: 10px;
+        }
+
+        .category p {
+            color: #666;
+        }
+
+        /* CONTACTO */
+
+        .contact-text {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 28px;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+            opacity: 0.85;
+        }
+
+        .facebook {
+            background: #1877F2;
+        }
+
+        .whatsapp {
+            background: #25D366;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #222;
+            color: white;
+            padding: 40px 8%;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 8px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 900px) {
+
+            .categories {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .categories {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .social-link {
+                width: 55px;
+                height: 55px;
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="logo">
+            ResinStore
+        </div>
+
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="#categorias">Categorías</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+
+    </header>
 
 
-        <!-- RESINA UV -->
+    <!-- HERO -->
 
-        <a href="UV.html" class="category">
+    <section class="hero">
 
-            <div class="category-icon">
-                💎
-            </div>
+        <div class="hero-content">
 
-            <h3>
-                Resina UV
-            </h3>
+            <h1>
+                Todo para crear con resina
+            </h1>
 
             <p>
-                Resinas UV para tus proyectos.
+                Resina UV, Epoxy, kits y accesorios
+                para llevar tus proyectos al siguiente nivel.
             </p>
 
-        </a>
+            <a href="#categorias" class="btn">
+                Ver categorías
+            </a>
+
+        </div>
+
+    </section>
 
 
-        <!-- RESINA EPOXY -->
+    <!-- CATEGORIAS -->
 
-        <a href="Epoxy.html" class="category">
+    <section class="section" id="categorias">
 
-            <div class="category-icon">
-                🧪
-            </div>
+        <h2 class="section-title">
+            Explora nuestras categorías
+        </h2>
 
-            <h3>
-                Resina Epoxy
-            </h3>
-
-            <p>
-                Resina para diferentes aplicaciones.
-            </p>
-
-        </a>
+        <div class="categories">
 
 
-        <!-- PIGMENTOS -->
+            <!-- RESINA UV -->
 
-        <a href="pigmentos.html" class="category">
+            <a href="UV.html" class="category">
 
-            <div class="category-icon">
-                🎨
-            </div>
+                <div class="category-icon">
+                    💎
+                </div>
 
-            <h3>
-                Pigmentos
-            </h3>
+                <h3>
+                    Resina UV
+                </h3>
 
-            <p>
-                Colores y pigmentos para tus creaciones.
-            </p>
+                <p>
+                    Resinas UV para tus proyectos.
+                </p>
 
-        </a>
-
-
-        <!-- ACCESORIOS -->
-
-        <a href="Accesorios.html" class="category">
-
-            <div class="category-icon">
-                🛠️
-            </div>
-
-            <h3>
-                Accesorios
-            </h3>
-
-            <p>
-                Herramientas y accesorios.
-            </p>
-
-        </a>
+            </a>
 
 
-    </div>
+            <!-- RESINA EPOXY -->
 
-</section>
+            <a href="Epoxy.html" class="category">
+
+                <div class="category-icon">
+                    🧪
+                </div>
+
+                <h3>
+                    Resina Epoxy
+                </h3>
+
+                <p>
+                    Resina para diferentes aplicaciones.
+                </p>
+
+            </a>
+
+
+            <!-- PIGMENTOS -->
+
+            <a href="pigmentos.html" class="category">
+
+                <div class="category-icon">
+                    🎨
+                </div>
+
+                <h3>
+                    Pigmentos
+                </h3>
+
+                <p>
+                    Colores y pigmentos para tus creaciones.
+                </p>
+
+            </a>
+
+
+            <!-- ACCESORIOS -->
+
+            <a href="Accesorios.html" class="category">
+
+                <div class="category-icon">
+                    🛠️
+                </div>
+
+                <h3>
+                    Accesorios
+                </h3>
+
+                <p>
+                    Herramientas y accesorios.
+                </p>
+
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACTO -->
+
+    <section class="section" id="contacto">
+
+        <h2 class="section-title">
+            ¿Tienes alguna pregunta?
+        </h2>
+
+        <p class="contact-text">
+            Contáctanos para conocer disponibilidad,
+            precios y opciones de entrega.
+        </p>
+
+
+        <div class="social-links">
+
+
+            <!-- FACEBOOK -->
+
+            <a
+                href="https://www.facebook.com/share/1MGKgDdvn8/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-link facebook"
+                aria-label="Facebook"
+                title="Visítanos en Facebook"
+            >
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+
+
+            <!-- WHATSAPP -->
+
+            <a
+                href="https://wa.me/50688888888"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-link whatsapp"
+                aria-label="WhatsApp"
+                title="Contáctanos por WhatsApp"
+            >
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 ResinStore
+        </p>
+
+        <p>
+            Todos los derechos reservados.
+        </p>
+
+    </footer>
+
+</body>
+</html>
