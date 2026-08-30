@@ -34,8 +34,17 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             font-size: 24px;
             font-weight: bold;
+        }
+        
+        .logo img {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
         }
 
         nav a {
@@ -247,7 +256,13 @@
     <header>
 
         <div class="logo">
-            ResinStore
+        
+            <img src="Resinlogo.png" alt="ResinStore">
+        
+            <span>
+                ResinStore
+            </span>
+        
         </div>
 
         <nav>
