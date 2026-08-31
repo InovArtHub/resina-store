@@ -110,14 +110,100 @@
             transform: translateY(-5px);
         }
 
+        /* CARRUSEL */
+
         .product-image {
-            height: 220px;
-            background: #eee;
+            width: 100%;
+            height: 260px;
+            background: #f5f5f5;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 70px;
+            overflow: hidden;
         }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: none;
+        }
+
+        .product-image img.active {
+            display: block;
+        }
+
+        /* BOTONES DEL CARRUSEL */
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+
+            width: 35px;
+            height: 35px;
+
+            border: none;
+            border-radius: 50%;
+
+            background: rgba(0,0,0,0.55);
+            color: white;
+
+            font-size: 24px;
+            line-height: 35px;
+
+            cursor: pointer;
+
+            z-index: 2;
+
+            opacity: 0;
+            transition: opacity 0.2s, background 0.2s;
+        }
+
+        .product-image:hover .carousel-btn {
+            opacity: 1;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(0,0,0,0.8);
+        }
+
+        .carousel-prev {
+            left: 10px;
+        }
+
+        .carousel-next {
+            right: 10px;
+        }
+
+        /* INDICADORES */
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+
+            z-index: 2;
+        }
+
+        .carousel-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.25);
+        }
+
+        .carousel-dot.active {
+            background: #8e44ad;
+        }
+
+        /* INFORMACION */
 
         .product-info {
             padding: 20px;
@@ -154,6 +240,19 @@
 
         .buy-btn:hover {
             background: #732d91;
+        }
+
+        /* DISCLAIMER */
+
+        .disclaimer {
+            margin-top: 40px;
+            padding: 15px 20px;
+            background: #f0f0f0;
+            border-radius: 8px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
         }
 
         /* FOOTER */
@@ -201,6 +300,10 @@
 
             .products {
                 grid-template-columns: 1fr;
+            }
+
+            .carousel-btn {
+                opacity: 1;
             }
 
         }
@@ -275,7 +378,39 @@
             <div class="product">
 
                 <div class="product-image">
-                    🟣
+
+                    <img
+                        src="img/accesorios/esfera.jpg"
+                        alt="Moldes Esféricos"
+                        class="active"
+                    >
+
+                    <img
+                        src="img/accesorios/esfera1.jpg"
+                        alt="Moldes Esféricos - imagen 2"
+                    >
+
+                    <button
+                        class="carousel-btn carousel-prev"
+                        onclick="changeImage(this, -1)"
+                        aria-label="Imagen anterior"
+                    >
+                        ‹
+                    </button>
+
+                    <button
+                        class="carousel-btn carousel-next"
+                        onclick="changeImage(this, 1)"
+                        aria-label="Imagen siguiente"
+                    >
+                        ›
+                    </button>
+
+                    <div class="carousel-dots">
+                        <span class="carousel-dot active"></span>
+                        <span class="carousel-dot"></span>
+                    </div>
+
                 </div>
 
                 <div class="product-info">
@@ -306,7 +441,39 @@
             <div class="product">
 
                 <div class="product-image">
-                    🥚
+
+                    <img
+                        src="img/accesorios/huevo.jpg"
+                        alt="Molde huevo"
+                        class="active"
+                    >
+
+                    <img
+                        src="img/accesorios/huevo1.jpg"
+                        alt="Molde huevo - imagen 2"
+                    >
+
+                    <button
+                        class="carousel-btn carousel-prev"
+                        onclick="changeImage(this, -1)"
+                        aria-label="Imagen anterior"
+                    >
+                        ‹
+                    </button>
+
+                    <button
+                        class="carousel-btn carousel-next"
+                        onclick="changeImage(this, 1)"
+                        aria-label="Imagen siguiente"
+                    >
+                        ›
+                    </button>
+
+                    <div class="carousel-dots">
+                        <span class="carousel-dot active"></span>
+                        <span class="carousel-dot"></span>
+                    </div>
+
                 </div>
 
                 <div class="product-info">
@@ -337,7 +504,39 @@
             <div class="product">
 
                 <div class="product-image">
-                    🤰
+
+                    <img
+                        src="img/accesorios/madre.jpg"
+                        alt="Molde madre embarazada"
+                        class="active"
+                    >
+
+                    <img
+                        src="img/accesorios/madre1.jpg"
+                        alt="Molde madre embarazada - imagen 2"
+                    >
+
+                    <button
+                        class="carousel-btn carousel-prev"
+                        onclick="changeImage(this, -1)"
+                        aria-label="Imagen anterior"
+                    >
+                        ‹
+                    </button>
+
+                    <button
+                        class="carousel-btn carousel-next"
+                        onclick="changeImage(this, 1)"
+                        aria-label="Imagen siguiente"
+                    >
+                        ›
+                    </button>
+
+                    <div class="carousel-dots">
+                        <span class="carousel-dot active"></span>
+                        <span class="carousel-dot"></span>
+                    </div>
+
                 </div>
 
                 <div class="product-info">
@@ -368,7 +567,39 @@
             <div class="product">
 
                 <div class="product-image">
-                    👩
+
+                    <img
+                        src="img/accesorios/maria.jpg"
+                        alt="Molde María"
+                        class="active"
+                    >
+
+                    <img
+                        src="img/accesorios/maria1.jpg"
+                        alt="Molde María - imagen 2"
+                    >
+
+                    <button
+                        class="carousel-btn carousel-prev"
+                        onclick="changeImage(this, -1)"
+                        aria-label="Imagen anterior"
+                    >
+                        ‹
+                    </button>
+
+                    <button
+                        class="carousel-btn carousel-next"
+                        onclick="changeImage(this, 1)"
+                        aria-label="Imagen siguiente"
+                    >
+                        ›
+                    </button>
+
+                    <div class="carousel-dots">
+                        <span class="carousel-dot active"></span>
+                        <span class="carousel-dot"></span>
+                    </div>
+
                 </div>
 
                 <div class="product-info">
@@ -399,7 +630,9 @@
             <div class="product">
 
                 <div class="product-image">
+
                     🐶
+
                 </div>
 
                 <div class="product-info">
@@ -430,7 +663,39 @@
             <div class="product">
 
                 <div class="product-image">
-                    ✨
+
+                    <img
+                        src="img/accesorios/glitter1.jpg"
+                        alt="Paquetes Glitter"
+                        class="active"
+                    >
+
+                    <img
+                        src="img/accesorios/glitter2.jpg"
+                        alt="Paquetes Glitter - imagen 2"
+                    >
+
+                    <button
+                        class="carousel-btn carousel-prev"
+                        onclick="changeImage(this, -1)"
+                        aria-label="Imagen anterior"
+                    >
+                        ‹
+                    </button>
+
+                    <button
+                        class="carousel-btn carousel-next"
+                        onclick="changeImage(this, 1)"
+                        aria-label="Imagen siguiente"
+                    >
+                        ›
+                    </button>
+
+                    <div class="carousel-dots">
+                        <span class="carousel-dot active"></span>
+                        <span class="carousel-dot"></span>
+                    </div>
+
                 </div>
 
                 <div class="product-info">
@@ -461,7 +726,39 @@
             <div class="product">
 
                 <div class="product-image">
-                    🔗
+
+                    <img
+                        src="img/accesorios/argolla.jpg"
+                        alt="Cierre de langosta y argolla"
+                        class="active"
+                    >
+
+                    <img
+                        src="img/accesorios/argolla1.jpg"
+                        alt="Cierre de langosta y argolla - imagen 2"
+                    >
+
+                    <button
+                        class="carousel-btn carousel-prev"
+                        onclick="changeImage(this, -1)"
+                        aria-label="Imagen anterior"
+                    >
+                        ‹
+                    </button>
+
+                    <button
+                        class="carousel-btn carousel-next"
+                        onclick="changeImage(this, 1)"
+                        aria-label="Imagen siguiente"
+                    >
+                        ›
+                    </button>
+
+                    <div class="carousel-dots">
+                        <span class="carousel-dot active"></span>
+                        <span class="carousel-dot"></span>
+                    </div>
+
                 </div>
 
                 <div class="product-info">
@@ -492,7 +789,39 @@
             <div class="product">
 
                 <div class="product-image">
-                    🔑
+
+                    <img
+                        src="img/accesorios/gancho.jpg"
+                        alt="Accesorio llavero"
+                        class="active"
+                    >
+
+                    <img
+                        src="img/accesorios/gancho2.jpg"
+                        alt="Accesorio llavero - imagen 2"
+                    >
+
+                    <button
+                        class="carousel-btn carousel-prev"
+                        onclick="changeImage(this, -1)"
+                        aria-label="Imagen anterior"
+                    >
+                        ‹
+                    </button>
+
+                    <button
+                        class="carousel-btn carousel-next"
+                        onclick="changeImage(this, 1)"
+                        aria-label="Imagen siguiente"
+                    >
+                        ›
+                    </button>
+
+                    <div class="carousel-dots">
+                        <span class="carousel-dot active"></span>
+                        <span class="carousel-dot"></span>
+                    </div>
+
                 </div>
 
                 <div class="product-info">
@@ -518,43 +847,50 @@
             </div>
 
 
-            <!-- PIEDRA CRISTAL 1 -->
+            <!-- PIEDRA CRISTAL -->
 
             <div class="product">
 
                 <div class="product-image">
-                    💎
-                </div>
 
-                <div class="product-info">
+                    <img
+                        src="img/accesorios/piedra1.jpg"
+                        alt="Piedra cristal"
+                        class="active"
+                    >
 
-                    <h2>
-                        Piedra cristal
-                    </h2>
+                    <img
+                        src="img/accesorios/piedra2.jpg"
+                        alt="Piedra cristal - imagen 2"
+                    >
 
-                    <p class="presentation">
-                        Accesorio decorativo
-                    </p>
+                    <img
+                        src="img/accesorios/piedra3.jpg"
+                        alt="Piedra cristal - imagen 3"
+                    >
 
-                    <div class="price">
-                        ₡1,000
+                    <button
+                        class="carousel-btn carousel-prev"
+                        onclick="changeImage(this, -1)"
+                        aria-label="Imagen anterior"
+                    >
+                        ‹
+                    </button>
+
+                    <button
+                        class="carousel-btn carousel-next"
+                        onclick="changeImage(this, 1)"
+                        aria-label="Imagen siguiente"
+                    >
+                        ›
+                    </button>
+
+                    <div class="carousel-dots">
+                        <span class="carousel-dot active"></span>
+                        <span class="carousel-dot"></span>
+                        <span class="carousel-dot"></span>
                     </div>
 
-                    <a href="#" class="buy-btn">
-                        Comprar
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- PIEDRA CRISTAL 2 -->
-
-            <div class="product">
-
-                <div class="product-image">
-                    💎
                 </div>
 
                 <div class="product-info">
@@ -582,6 +918,21 @@
 
         </div>
 
+
+        <!-- DISCLAIMER -->
+
+        <div class="disclaimer">
+
+            <strong>Aviso:</strong>
+            Las imágenes mostradas son únicamente ilustrativas.
+            El producto, color, presentación, empaque o apariencia
+            pueden variar ligeramente respecto a las imágenes publicadas.
+            La disponibilidad y características del producto estarán
+            sujetas al inventario.
+
+        </div>
+
+
     </main>
 
 
@@ -598,6 +949,77 @@
         </p>
 
     </footer>
+
+
+    <!-- JAVASCRIPT DEL CARRUSEL -->
+
+    <script>
+
+        function changeImage(button, direction) {
+
+            const carousel = button.closest(".product-image");
+
+            const images = carousel.querySelectorAll("img");
+
+            const dots = carousel.querySelectorAll(".carousel-dot");
+
+            let currentIndex = 0;
+
+
+            images.forEach((image, index) => {
+
+                if (image.classList.contains("active")) {
+
+                    currentIndex = index;
+
+                }
+
+            });
+
+
+            let newIndex = currentIndex + direction;
+
+
+            if (newIndex < 0) {
+
+                newIndex = images.length - 1;
+
+            }
+
+
+            if (newIndex >= images.length) {
+
+                newIndex = 0;
+
+            }
+
+
+            images.forEach((image) => {
+
+                image.classList.remove("active");
+
+            });
+
+
+            dots.forEach((dot) => {
+
+                dot.classList.remove("active");
+
+            });
+
+
+            images[newIndex].classList.add("active");
+
+
+            if (dots[newIndex]) {
+
+                dots[newIndex].classList.add("active");
+
+            }
+
+        }
+
+    </script>
 
 
 </body>
