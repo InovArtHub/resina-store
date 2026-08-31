@@ -48,6 +48,11 @@
             object-fit: contain;
         }
 
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
         nav a {
             text-decoration: none;
             color: #222;
@@ -57,6 +62,33 @@
 
         nav a:hover {
             color: #8e44ad;
+        }
+
+        /* CARRITO HEADER */
+
+        .cart-button {
+            margin-left: 25px;
+            background: #8e44ad;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .cart-button:hover {
+            background: #732d91;
+        }
+
+        .cart-count {
+            background: white;
+            color: #8e44ad;
+            border-radius: 50%;
+            padding: 2px 7px;
+            margin-left: 5px;
+            font-size: 13px;
         }
 
         /* CONTENIDO */
@@ -134,7 +166,7 @@
             display: block;
         }
 
-        /* BOTONES DEL CARRUSEL */
+        /* BOTONES CARRUSEL */
 
         .carousel-btn {
             position: absolute;
@@ -226,6 +258,8 @@
             margin: 15px 0;
         }
 
+        /* BOTON AGREGAR */
+
         .buy-btn {
             display: block;
             width: 100%;
@@ -233,9 +267,11 @@
             color: white;
             padding: 12px;
             border-radius: 8px;
-            text-decoration: none;
+            border: none;
             text-align: center;
             font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
         }
 
         .buy-btn:hover {
@@ -253,6 +289,251 @@
             color: #666;
             font-size: 14px;
             line-height: 1.6;
+        }
+
+        /* CARRITO */
+
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            background: rgba(0,0,0,0.45);
+
+            display: none;
+
+            z-index: 999;
+        }
+
+        .cart-overlay.active {
+            display: block;
+        }
+
+        .cart {
+            position: fixed;
+            top: 0;
+            right: 0;
+
+            width: 420px;
+            max-width: 100%;
+            height: 100%;
+
+            background: white;
+
+            box-shadow: -5px 0 20px rgba(0,0,0,0.2);
+
+            display: flex;
+            flex-direction: column;
+
+            animation: cartOpen 0.25s ease;
+        }
+
+        @keyframes cartOpen {
+
+            from {
+                transform: translateX(100%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+
+        }
+
+        /* CABECERA CARRITO */
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 20px;
+
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-header h2 {
+            font-size: 24px;
+        }
+
+        .close-cart {
+            border: none;
+            background: none;
+            font-size: 30px;
+            cursor: pointer;
+            color: #555;
+        }
+
+        /* ITEMS */
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 12px;
+
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item-image {
+            width: 75px;
+            height: 75px;
+
+            background: #f5f5f5;
+
+            border-radius: 8px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+
+            flex-shrink: 0;
+        }
+
+        .cart-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-info h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-price {
+            color: #8e44ad;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        /* CANTIDADES */
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .quantity-btn {
+            width: 28px;
+            height: 28px;
+
+            border: 1px solid #ddd;
+            background: white;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+            font-size: 18px;
+        }
+
+        .quantity-btn:hover {
+            background: #f0f0f0;
+        }
+
+        .quantity {
+            min-width: 25px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .remove-btn {
+            margin-left: auto;
+
+            border: none;
+            background: none;
+
+            color: #d9534f;
+
+            cursor: pointer;
+
+            font-size: 14px;
+        }
+
+        .remove-btn:hover {
+            text-decoration: underline;
+        }
+
+        /* CARRITO VACIO */
+
+        .empty-cart {
+            text-align: center;
+            padding: 60px 20px;
+            color: #777;
+        }
+
+        .empty-cart-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        /* TOTAL */
+
+        .cart-footer {
+            padding: 20px;
+
+            border-top: 1px solid #eee;
+        }
+
+        .cart-subtotal {
+            display: flex;
+            justify-content: space-between;
+
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+
+            font-size: 24px;
+            font-weight: bold;
+
+            margin-bottom: 20px;
+        }
+
+        .cart-total-value {
+            color: #8e44ad;
+        }
+
+        .checkout-btn {
+            display: block;
+            width: 100%;
+
+            padding: 14px;
+
+            background: #25D366;
+            color: white;
+
+            border: none;
+            border-radius: 8px;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .checkout-btn:hover {
+            background: #1ebe5d;
         }
 
         /* FOOTER */
@@ -286,8 +567,18 @@
                 gap: 15px;
             }
 
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
             nav a {
                 margin: 0 8px;
+            }
+
+            .cart-button {
+                margin-left: 8px;
             }
 
             .container {
@@ -304,6 +595,10 @@
 
             .carousel-btn {
                 opacity: 1;
+            }
+
+            .cart {
+                width: 100%;
             }
 
         }
@@ -330,6 +625,7 @@
 
         </div>
 
+
         <nav>
 
             <a href="index.html">
@@ -344,6 +640,25 @@
                 Contacto
             </a>
 
+
+            <!-- CARRITO -->
+
+            <button
+                class="cart-button"
+                onclick="openCart()"
+            >
+
+                🛒 Carrito
+
+                <span
+                    class="cart-count"
+                    id="cartCount"
+                >
+                    0
+                </span>
+
+            </button>
+
         </nav>
 
     </header>
@@ -353,7 +668,11 @@
 
     <main class="container">
 
-        <a href="index.html#categorias" class="back">
+
+        <a
+            href="index.html#categorias"
+            class="back"
+        >
             ← Volver a categorías
         </a>
 
@@ -393,7 +712,6 @@
                     <button
                         class="carousel-btn carousel-prev"
                         onclick="changeImage(this, -1)"
-                        aria-label="Imagen anterior"
                     >
                         ‹
                     </button>
@@ -401,7 +719,6 @@
                     <button
                         class="carousel-btn carousel-next"
                         onclick="changeImage(this, 1)"
-                        aria-label="Imagen siguiente"
                     >
                         ›
                     </button>
@@ -409,11 +726,13 @@
                     <div class="carousel-dots">
 
                         <span class="carousel-dot active"></span>
+
                         <span class="carousel-dot"></span>
 
                     </div>
 
                 </div>
+
 
                 <div class="product-info">
 
@@ -422,16 +741,23 @@
                     </h2>
 
                     <p class="presentation">
-                        Molde para resina
+                        Accesorio para resina
                     </p>
 
                     <div class="price">
                         ₡750
                     </div>
 
-                    <a href="#" class="buy-btn">
-                        Comprar
-                    </a>
+                    <button
+                        class="buy-btn"
+                        onclick="addToCart(
+                            'Moldes Esféricos',
+                            750,
+                            'img/accesorios/esfera.jpg'
+                        )"
+                    >
+                        Agregar al carrito
+                    </button>
 
                 </div>
 
@@ -458,7 +784,6 @@
                     <button
                         class="carousel-btn carousel-prev"
                         onclick="changeImage(this, -1)"
-                        aria-label="Imagen anterior"
                     >
                         ‹
                     </button>
@@ -466,7 +791,6 @@
                     <button
                         class="carousel-btn carousel-next"
                         onclick="changeImage(this, 1)"
-                        aria-label="Imagen siguiente"
                     >
                         ›
                     </button>
@@ -474,11 +798,13 @@
                     <div class="carousel-dots">
 
                         <span class="carousel-dot active"></span>
+
                         <span class="carousel-dot"></span>
 
                     </div>
 
                 </div>
+
 
                 <div class="product-info">
 
@@ -494,16 +820,23 @@
                         ₡3,000
                     </div>
 
-                    <a href="#" class="buy-btn">
-                        Comprar
-                    </a>
+                    <button
+                        class="buy-btn"
+                        onclick="addToCart(
+                            'Molde huevo + Dragon',
+                            3000,
+                            'img/accesorios/huevo.jpg'
+                        )"
+                    >
+                        Agregar al carrito
+                    </button>
 
                 </div>
 
             </div>
 
 
-            <!-- MOLDE MADRE EMBARAZADA -->
+            <!-- MADRE EMBARAZADA -->
 
             <div class="product">
 
@@ -523,7 +856,6 @@
                     <button
                         class="carousel-btn carousel-prev"
                         onclick="changeImage(this, -1)"
-                        aria-label="Imagen anterior"
                     >
                         ‹
                     </button>
@@ -531,7 +863,6 @@
                     <button
                         class="carousel-btn carousel-next"
                         onclick="changeImage(this, 1)"
-                        aria-label="Imagen siguiente"
                     >
                         ›
                     </button>
@@ -539,11 +870,13 @@
                     <div class="carousel-dots">
 
                         <span class="carousel-dot active"></span>
+
                         <span class="carousel-dot"></span>
 
                     </div>
 
                 </div>
+
 
                 <div class="product-info">
 
@@ -559,16 +892,23 @@
                         ₡2,500
                     </div>
 
-                    <a href="#" class="buy-btn">
-                        Comprar
-                    </a>
+                    <button
+                        class="buy-btn"
+                        onclick="addToCart(
+                            'Molde madre embarazada',
+                            2500,
+                            'img/accesorios/madre.jpg'
+                        )"
+                    >
+                        Agregar al carrito
+                    </button>
 
                 </div>
 
             </div>
 
 
-            <!-- MOLDE MARIA -->
+            <!-- MARIA -->
 
             <div class="product">
 
@@ -588,7 +928,6 @@
                     <button
                         class="carousel-btn carousel-prev"
                         onclick="changeImage(this, -1)"
-                        aria-label="Imagen anterior"
                     >
                         ‹
                     </button>
@@ -596,7 +935,6 @@
                     <button
                         class="carousel-btn carousel-next"
                         onclick="changeImage(this, 1)"
-                        aria-label="Imagen siguiente"
                     >
                         ›
                     </button>
@@ -604,11 +942,13 @@
                     <div class="carousel-dots">
 
                         <span class="carousel-dot active"></span>
+
                         <span class="carousel-dot"></span>
 
                     </div>
 
                 </div>
+
 
                 <div class="product-info">
 
@@ -624,16 +964,23 @@
                         ₡2,500
                     </div>
 
-                    <a href="#" class="buy-btn">
-                        Comprar
-                    </a>
+                    <button
+                        class="buy-btn"
+                        onclick="addToCart(
+                            'Molde María',
+                            2500,
+                            'img/accesorios/maria.jpg'
+                        )"
+                    >
+                        Agregar al carrito
+                    </button>
 
                 </div>
 
             </div>
 
 
-            <!-- MOLDE RECUERDO DOG -->
+            <!-- DOG -->
 
             <div class="product">
 
@@ -658,7 +1005,6 @@
                     <button
                         class="carousel-btn carousel-prev"
                         onclick="changeImage(this, -1)"
-                        aria-label="Imagen anterior"
                     >
                         ‹
                     </button>
@@ -666,7 +1012,6 @@
                     <button
                         class="carousel-btn carousel-next"
                         onclick="changeImage(this, 1)"
-                        aria-label="Imagen siguiente"
                     >
                         ›
                     </button>
@@ -674,12 +1019,15 @@
                     <div class="carousel-dots">
 
                         <span class="carousel-dot active"></span>
+
                         <span class="carousel-dot"></span>
+
                         <span class="carousel-dot"></span>
 
                     </div>
 
                 </div>
+
 
                 <div class="product-info">
 
@@ -695,16 +1043,23 @@
                         ₡2,500
                     </div>
 
-                    <a href="#" class="buy-btn">
-                        Comprar
-                    </a>
+                    <button
+                        class="buy-btn"
+                        onclick="addToCart(
+                            'Molde Recuerdo Dog',
+                            2500,
+                            'img/accesorios/dog1.jpg'
+                        )"
+                    >
+                        Agregar al carrito
+                    </button>
 
                 </div>
 
             </div>
 
 
-            <!-- PAQUETES GLITTER -->
+            <!-- GLITTER -->
 
             <div class="product">
 
@@ -724,7 +1079,6 @@
                     <button
                         class="carousel-btn carousel-prev"
                         onclick="changeImage(this, -1)"
-                        aria-label="Imagen anterior"
                     >
                         ‹
                     </button>
@@ -732,7 +1086,6 @@
                     <button
                         class="carousel-btn carousel-next"
                         onclick="changeImage(this, 1)"
-                        aria-label="Imagen siguiente"
                     >
                         ›
                     </button>
@@ -740,11 +1093,13 @@
                     <div class="carousel-dots">
 
                         <span class="carousel-dot active"></span>
+
                         <span class="carousel-dot"></span>
 
                     </div>
 
                 </div>
+
 
                 <div class="product-info">
 
@@ -760,16 +1115,23 @@
                         ₡1,000
                     </div>
 
-                    <a href="#" class="buy-btn">
-                        Comprar
-                    </a>
+                    <button
+                        class="buy-btn"
+                        onclick="addToCart(
+                            'Paquetes Glitter',
+                            1000,
+                            'img/accesorios/glitter1.jpg'
+                        )"
+                    >
+                        Agregar al carrito
+                    </button>
 
                 </div>
 
             </div>
 
 
-            <!-- CIERRE DE LANGOSTA Y ARGOLLA -->
+            <!-- ARGOLLA -->
 
             <div class="product">
 
@@ -789,7 +1151,6 @@
                     <button
                         class="carousel-btn carousel-prev"
                         onclick="changeImage(this, -1)"
-                        aria-label="Imagen anterior"
                     >
                         ‹
                     </button>
@@ -797,7 +1158,6 @@
                     <button
                         class="carousel-btn carousel-next"
                         onclick="changeImage(this, 1)"
-                        aria-label="Imagen siguiente"
                     >
                         ›
                     </button>
@@ -805,11 +1165,13 @@
                     <div class="carousel-dots">
 
                         <span class="carousel-dot active"></span>
+
                         <span class="carousel-dot"></span>
 
                     </div>
 
                 </div>
+
 
                 <div class="product-info">
 
@@ -825,16 +1187,23 @@
                         ₡250
                     </div>
 
-                    <a href="#" class="buy-btn">
-                        Comprar
-                    </a>
+                    <button
+                        class="buy-btn"
+                        onclick="addToCart(
+                            'Cierre de langosta y argolla',
+                            250,
+                            'img/accesorios/argolla.jpg'
+                        )"
+                    >
+                        Agregar al carrito
+                    </button>
 
                 </div>
 
             </div>
 
 
-            <!-- ACCESORIO LLAVERO -->
+            <!-- GANCHO -->
 
             <div class="product">
 
@@ -854,7 +1223,6 @@
                     <button
                         class="carousel-btn carousel-prev"
                         onclick="changeImage(this, -1)"
-                        aria-label="Imagen anterior"
                     >
                         ‹
                     </button>
@@ -862,7 +1230,6 @@
                     <button
                         class="carousel-btn carousel-next"
                         onclick="changeImage(this, 1)"
-                        aria-label="Imagen siguiente"
                     >
                         ›
                     </button>
@@ -870,11 +1237,13 @@
                     <div class="carousel-dots">
 
                         <span class="carousel-dot active"></span>
+
                         <span class="carousel-dot"></span>
 
                     </div>
 
                 </div>
+
 
                 <div class="product-info">
 
@@ -890,16 +1259,23 @@
                         ₡350
                     </div>
 
-                    <a href="#" class="buy-btn">
-                        Comprar
-                    </a>
+                    <button
+                        class="buy-btn"
+                        onclick="addToCart(
+                            'Accesorio llavero',
+                            350,
+                            'img/accesorios/gancho.jpg'
+                        )"
+                    >
+                        Agregar al carrito
+                    </button>
 
                 </div>
 
             </div>
 
 
-            <!-- PIEDRA CRISTAL -->
+            <!-- PIEDRA -->
 
             <div class="product">
 
@@ -924,7 +1300,6 @@
                     <button
                         class="carousel-btn carousel-prev"
                         onclick="changeImage(this, -1)"
-                        aria-label="Imagen anterior"
                     >
                         ‹
                     </button>
@@ -932,7 +1307,6 @@
                     <button
                         class="carousel-btn carousel-next"
                         onclick="changeImage(this, 1)"
-                        aria-label="Imagen siguiente"
                     >
                         ›
                     </button>
@@ -940,12 +1314,15 @@
                     <div class="carousel-dots">
 
                         <span class="carousel-dot active"></span>
+
                         <span class="carousel-dot"></span>
+
                         <span class="carousel-dot"></span>
 
                     </div>
 
                 </div>
+
 
                 <div class="product-info">
 
@@ -961,9 +1338,16 @@
                         ₡1,000
                     </div>
 
-                    <a href="#" class="buy-btn">
-                        Comprar
-                    </a>
+                    <button
+                        class="buy-btn"
+                        onclick="addToCart(
+                            'Piedra cristal',
+                            1000,
+                            'img/accesorios/piedra1.jpg'
+                        )"
+                    >
+                        Agregar al carrito
+                    </button>
 
                 </div>
 
@@ -978,6 +1362,7 @@
         <div class="disclaimer">
 
             <strong>Aviso:</strong>
+
             Las imágenes mostradas son únicamente ilustrativas.
             El producto, color, presentación, empaque o apariencia
             pueden variar ligeramente respecto a las imágenes publicadas.
@@ -988,6 +1373,95 @@
 
 
     </main>
+
+
+    <!-- CARRITO -->
+
+    <div
+        class="cart-overlay"
+        id="cartOverlay"
+        onclick="closeCart(event)"
+    >
+
+        <div
+            class="cart"
+            onclick="event.stopPropagation()"
+        >
+
+
+            <!-- CABECERA -->
+
+            <div class="cart-header">
+
+                <h2>
+                    🛒 Mi carrito
+                </h2>
+
+                <button
+                    class="close-cart"
+                    onclick="closeCart()"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <!-- ITEMS -->
+
+            <div
+                class="cart-items"
+                id="cartItems"
+            >
+
+            </div>
+
+
+            <!-- FOOTER -->
+
+            <div class="cart-footer">
+
+                <div class="cart-subtotal">
+
+                    <span>
+                        Subtotal
+                    </span>
+
+                    <span id="cartSubtotal">
+                        ₡0
+                    </span>
+
+                </div>
+
+
+                <div class="cart-total">
+
+                    <span>
+                        Total
+                    </span>
+
+                    <span
+                        class="cart-total-value"
+                        id="cartTotal"
+                    >
+                        ₡0
+                    </span>
+
+                </div>
+
+
+                <button
+                    class="checkout-btn"
+                    onclick="checkoutWhatsApp()"
+                >
+                    Finalizar pedido por WhatsApp
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
 
 
     <!-- FOOTER -->
@@ -1005,9 +1479,13 @@
     </footer>
 
 
-    <!-- JAVASCRIPT DEL CARRUSEL -->
+    <!-- JAVASCRIPT -->
 
     <script>
+
+        /* =========================================
+           CARRUSEL
+        ========================================= */
 
         function changeImage(button, direction) {
 
@@ -1072,6 +1550,329 @@
             }
 
         }
+
+
+        /* =========================================
+           CARRITO
+        ========================================= */
+
+        let cart = JSON.parse(
+            localStorage.getItem("resinStoreCart")
+        ) || [];
+
+
+        /* AGREGAR PRODUCTO */
+
+        function addToCart(name, price, image) {
+
+            const existingProduct = cart.find(
+                product => product.name === name
+            );
+
+
+            if (existingProduct) {
+
+                existingProduct.quantity++;
+
+            } else {
+
+                cart.push({
+
+                    name: name,
+
+                    price: price,
+
+                    image: image,
+
+                    quantity: 1
+
+                });
+
+            }
+
+
+            saveCart();
+
+            updateCart();
+
+            openCart();
+
+        }
+
+
+        /* GUARDAR */
+
+        function saveCart() {
+
+            localStorage.setItem(
+                "resinStoreCart",
+                JSON.stringify(cart)
+            );
+
+        }
+
+
+        /* ACTUALIZAR */
+
+        function updateCart() {
+
+            const cartItems =
+                document.getElementById("cartItems");
+
+            const cartCount =
+                document.getElementById("cartCount");
+
+            const cartSubtotal =
+                document.getElementById("cartSubtotal");
+
+            const cartTotal =
+                document.getElementById("cartTotal");
+
+
+            cartItems.innerHTML = "";
+
+
+            let total = 0;
+
+            let totalQuantity = 0;
+
+
+            if (cart.length === 0) {
+
+                cartItems.innerHTML = `
+
+                    <div class="empty-cart">
+
+                        <div class="empty-cart-icon">
+                            🛒
+                        </div>
+
+                        <h3>
+                            Tu carrito está vacío
+                        </h3>
+
+                        <p>
+                            Agrega productos para comenzar.
+                        </p>
+
+                    </div>
+
+                `;
+
+            }
+
+
+            cart.forEach((product, index) => {
+
+                const subtotal =
+                    product.price * product.quantity;
+
+
+                total += subtotal;
+
+                totalQuantity += product.quantity;
+
+
+                cartItems.innerHTML += `
+
+                    <div class="cart-item">
+
+                        <div class="cart-item-image">
+
+                            <img
+                                src="${product.image}"
+                                alt="${product.name}"
+                            >
+
+                        </div>
+
+
+                        <div class="cart-item-info">
+
+                            <h3>
+                                ${product.name}
+                            </h3>
+
+
+                            <div class="cart-item-price">
+                                ₡${product.price.toLocaleString("es-CR")}
+                            </div>
+
+
+                            <div class="quantity-controls">
+
+                                <button
+                                    class="quantity-btn"
+                                    onclick="changeQuantity(${index}, -1)"
+                                >
+                                    −
+                                </button>
+
+
+                                <span class="quantity">
+                                    ${product.quantity}
+                                </span>
+
+
+                                <button
+                                    class="quantity-btn"
+                                    onclick="changeQuantity(${index}, 1)"
+                                >
+                                    +
+                                </button>
+
+
+                                <button
+                                    class="remove-btn"
+                                    onclick="removeFromCart(${index})"
+                                >
+                                    Eliminar
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            });
+
+
+            cartCount.textContent = totalQuantity;
+
+            cartSubtotal.textContent =
+                "₡" + total.toLocaleString("es-CR");
+
+            cartTotal.textContent =
+                "₡" + total.toLocaleString("es-CR");
+
+        }
+
+
+        /* CAMBIAR CANTIDAD */
+
+        function changeQuantity(index, amount) {
+
+            cart[index].quantity += amount;
+
+
+            if (cart[index].quantity <= 0) {
+
+                cart.splice(index, 1);
+
+            }
+
+
+            saveCart();
+
+            updateCart();
+
+        }
+
+
+        /* ELIMINAR */
+
+        function removeFromCart(index) {
+
+            cart.splice(index, 1);
+
+            saveCart();
+
+            updateCart();
+
+        }
+
+
+        /* ABRIR */
+
+        function openCart() {
+
+            document
+                .getElementById("cartOverlay")
+                .classList.add("active");
+
+        }
+
+
+        /* CERRAR */
+
+        function closeCart(event) {
+
+            if (
+                !event ||
+                event.target === document.getElementById("cartOverlay")
+            ) {
+
+                document
+                    .getElementById("cartOverlay")
+                    .classList.remove("active");
+
+            }
+
+        }
+
+
+        /* WHATSAPP */
+
+        function checkoutWhatsApp() {
+
+            if (cart.length === 0) {
+
+                alert(
+                    "Tu carrito está vacío."
+                );
+
+                return;
+
+            }
+
+
+            let message =
+                "Hola, quiero realizar el siguiente pedido:%0A%0A";
+
+
+            let total = 0;
+
+
+            cart.forEach(product => {
+
+                const subtotal =
+                    product.price * product.quantity;
+
+
+                total += subtotal;
+
+
+                message +=
+                    "• " +
+                    product.name +
+                    " x" +
+                    product.quantity +
+                    " - ₡" +
+                    subtotal.toLocaleString("es-CR") +
+                    "%0A";
+
+            });
+
+
+            message +=
+                "%0ATotal: ₡" +
+                total.toLocaleString("es-CR");
+
+
+            window.open(
+                "https://wa.me/50688888888?text=" + message,
+                "_blank"
+            );
+
+        }
+
+
+        /* INICIALIZAR */
+
+        updateCart();
 
     </script>
 
