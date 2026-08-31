@@ -48,6 +48,11 @@
             object-fit: contain;
         }
 
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
         nav a {
             text-decoration: none;
             color: #222;
@@ -58,6 +63,35 @@
         nav a:hover {
             color: #8e44ad;
         }
+
+
+        /* CARRITO */
+
+        .cart-button {
+            margin-left: 25px;
+            background: #8e44ad;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .cart-button:hover {
+            background: #732d91;
+        }
+
+        .cart-count {
+            background: white;
+            color: #8e44ad;
+            border-radius: 50%;
+            padding: 2px 7px;
+            margin-left: 5px;
+            font-size: 13px;
+        }
+
 
         /* CONTENIDO */
 
@@ -90,6 +124,7 @@
             font-size: 18px;
         }
 
+
         /* PRODUCTOS */
 
         .products {
@@ -109,6 +144,7 @@
         .product:hover {
             transform: translateY(-5px);
         }
+
 
         /* CARRUSEL */
 
@@ -134,7 +170,8 @@
             display: block;
         }
 
-        /* BOTONES DEL CARRUSEL */
+
+        /* BOTONES CARRUSEL */
 
         .carousel-btn {
             position: absolute;
@@ -177,16 +214,21 @@
             right: 10px;
         }
 
+
         /* INDICADORES */
 
         .carousel-dots {
             position: absolute;
+
             bottom: 10px;
+
             left: 0;
             right: 0;
 
             display: flex;
+
             justify-content: center;
+
             gap: 6px;
 
             z-index: 2;
@@ -195,7 +237,9 @@
         .carousel-dot {
             width: 7px;
             height: 7px;
+
             border-radius: 50%;
+
             background: rgba(0,0,0,0.25);
         }
 
@@ -203,7 +247,8 @@
             background: #8e44ad;
         }
 
-        /* INFORMACION DEL PRODUCTO */
+
+        /* INFORMACION */
 
         .product-info {
             padding: 20px;
@@ -226,84 +271,503 @@
             margin: 15px 0;
         }
 
+
+        /* BOTON CARRITO */
+
         .buy-btn {
             display: block;
+
             width: 100%;
+
             background: #8e44ad;
+
             color: white;
+
             padding: 12px;
+
             border-radius: 8px;
-            text-decoration: none;
+
+            border: none;
+
             text-align: center;
+
             font-weight: bold;
+
+            cursor: pointer;
+
+            font-size: 16px;
         }
 
         .buy-btn:hover {
             background: #732d91;
         }
 
+
         /* DISCLAIMER */
 
         .disclaimer {
             margin-top: 40px;
+
             padding: 15px 20px;
+
             background: #f0f0f0;
+
             border-radius: 8px;
+
             text-align: center;
+
             color: #666;
+
             font-size: 14px;
+
             line-height: 1.6;
         }
+
+
+        /* =========================================
+           CARRITO
+        ========================================== */
+
+        .cart-overlay {
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background: rgba(0,0,0,0.45);
+
+            display: none;
+
+            z-index: 999;
+        }
+
+        .cart-overlay.active {
+            display: block;
+        }
+
+
+        .cart {
+
+            position: fixed;
+
+            top: 0;
+            right: 0;
+
+            width: 420px;
+
+            max-width: 100%;
+
+            height: 100%;
+
+            background: white;
+
+            box-shadow: -5px 0 20px rgba(0,0,0,0.2);
+
+            display: flex;
+
+            flex-direction: column;
+
+            animation: cartOpen 0.25s ease;
+        }
+
+
+        @keyframes cartOpen {
+
+            from {
+                transform: translateX(100%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+
+        }
+
+
+        /* CABECERA CARRITO */
+
+        .cart-header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: 20px;
+
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-header h2 {
+            font-size: 24px;
+        }
+
+        .close-cart {
+
+            border: none;
+
+            background: none;
+
+            font-size: 30px;
+
+            cursor: pointer;
+
+            color: #555;
+        }
+
+
+        /* ITEMS */
+
+        .cart-items {
+
+            flex: 1;
+
+            overflow-y: auto;
+
+            padding: 20px;
+        }
+
+
+        .cart-item {
+
+            display: flex;
+
+            gap: 12px;
+
+            padding-bottom: 20px;
+
+            margin-bottom: 20px;
+
+            border-bottom: 1px solid #eee;
+        }
+
+
+        .cart-item-image {
+
+            width: 75px;
+
+            height: 75px;
+
+            background: #f5f5f5;
+
+            border-radius: 8px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            overflow: hidden;
+
+            flex-shrink: 0;
+        }
+
+
+        .cart-item-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: contain;
+        }
+
+
+        .cart-item-info {
+
+            flex: 1;
+        }
+
+
+        .cart-item-info h3 {
+
+            font-size: 16px;
+
+            margin-bottom: 5px;
+        }
+
+
+        .cart-item-price {
+
+            color: #8e44ad;
+
+            font-weight: bold;
+
+            margin-bottom: 8px;
+        }
+
+
+        /* CANTIDADES */
+
+        .quantity-controls {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+        }
+
+
+        .quantity-btn {
+
+            width: 28px;
+
+            height: 28px;
+
+            border: 1px solid #ddd;
+
+            background: white;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+            font-size: 18px;
+        }
+
+
+        .quantity-btn:hover {
+
+            background: #f0f0f0;
+        }
+
+
+        .quantity {
+
+            min-width: 25px;
+
+            text-align: center;
+
+            font-weight: bold;
+        }
+
+
+        .remove-btn {
+
+            margin-left: auto;
+
+            border: none;
+
+            background: none;
+
+            color: #d9534f;
+
+            cursor: pointer;
+
+            font-size: 14px;
+        }
+
+
+        .remove-btn:hover {
+
+            text-decoration: underline;
+        }
+
+
+        /* CARRITO VACIO */
+
+        .empty-cart {
+
+            text-align: center;
+
+            padding: 60px 20px;
+
+            color: #777;
+        }
+
+
+        .empty-cart-icon {
+
+            font-size: 60px;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* FOOTER CARRITO */
+
+        .cart-footer {
+
+            padding: 20px;
+
+            border-top: 1px solid #eee;
+        }
+
+
+        .cart-subtotal {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            font-size: 18px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .cart-total {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            font-size: 24px;
+
+            font-weight: bold;
+
+            margin-bottom: 20px;
+        }
+
+
+        .cart-total-value {
+
+            color: #8e44ad;
+        }
+
+
+        /* WHATSAPP */
+
+        .checkout-btn {
+
+            display: block;
+
+            width: 100%;
+
+            padding: 14px;
+
+            background: #25D366;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 8px;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+        .checkout-btn:hover {
+
+            background: #1ebe5d;
+        }
+
 
         /* FOOTER */
 
         footer {
+
             margin-top: 60px;
+
             background: #222;
+
             color: white;
+
             padding: 40px 8%;
+
             text-align: center;
         }
 
+
         footer p {
+
             margin-bottom: 8px;
         }
+
 
         /* RESPONSIVE */
 
         @media (max-width: 900px) {
 
             .products {
+
                 grid-template-columns: repeat(2, 1fr);
+
             }
 
         }
 
+
         @media (max-width: 600px) {
 
             header {
+
                 flex-direction: column;
+
                 gap: 15px;
+
             }
+
+
+            nav {
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 10px;
+
+            }
+
 
             nav a {
+
                 margin: 0 8px;
+
             }
+
+
+            .cart-button {
+
+                margin-left: 8px;
+
+            }
+
 
             .container {
+
                 padding: 40px 5%;
+
             }
+
 
             h1 {
+
                 font-size: 32px;
+
             }
+
 
             .products {
+
                 grid-template-columns: 1fr;
+
             }
 
+
             .carousel-btn {
+
                 opacity: 1;
+
+            }
+
+
+            .cart {
+
+                width: 100%;
+
             }
 
         }
@@ -320,9 +784,13 @@
 
     <header>
 
+
         <div class="logo">
 
-            <img src="Resinlogo.png" alt="ResinStore">
+            <img
+                src="Resinlogo.png"
+                alt="ResinStore"
+            >
 
             <span>
                 ResinStore
@@ -330,19 +798,43 @@
 
         </div>
 
+
         <nav>
+
 
             <a href="index.html">
                 Inicio
             </a>
 
+
             <a href="index.html#categorias">
                 Categorías
             </a>
 
+
             <a href="index.html#contacto">
                 Contacto
             </a>
+
+
+            <!-- CARRITO -->
+
+            <button
+                class="cart-button"
+                onclick="openCart()"
+            >
+
+                🛒 Carrito
+
+                <span
+                    class="cart-count"
+                    id="cartCount"
+                >
+                    0
+                </span>
+
+            </button>
+
 
         </nav>
 
@@ -353,7 +845,11 @@
 
     <main class="container">
 
-        <a href="index.html#categorias" class="back">
+
+        <a
+            href="index.html#categorias"
+            class="back"
+        >
             ← Volver a categorías
         </a>
 
@@ -368,28 +864,36 @@
         </p>
 
 
-        <!-- PRODUCTOS -->
+        <!-- =========================================
+             PRODUCTOS
+        ========================================== -->
 
         <div class="products">
 
 
-            <!-- RESINA EPOXY 100 ML -->
+            <!-- =====================================
+                 EPOXY 100 ML
+            ====================================== -->
 
             <div class="product">
 
+
                 <div class="product-image">
+
 
                     <img
                         src="img/epoxy/epoxy_0.png"
                         alt="Resina Epoxy"
                         class="active"
                     >
+
 
                     <img
                         src="img/epoxy/epoxy_100ml_1.png"
                         alt="Resina Epoxy 100 ml"
                     >
 
+
                     <button
                         class="carousel-btn carousel-prev"
                         onclick="changeImage(this, -1)"
@@ -397,6 +901,7 @@
                     >
                         ‹
                     </button>
+
 
                     <button
                         class="carousel-btn carousel-next"
@@ -406,55 +911,78 @@
                         ›
                     </button>
 
+
                     <div class="carousel-dots">
 
                         <span class="carousel-dot active"></span>
+
                         <span class="carousel-dot"></span>
 
                     </div>
 
+
                 </div>
 
+
                 <div class="product-info">
+
 
                     <h2>
                         Resina Epoxy A:B
                     </h2>
 
+
                     <p class="presentation">
                         Presentación: 100 ml
                     </p>
+
 
                     <div class="price">
                         ₡4,500
                     </div>
 
-                    <a href="#" class="buy-btn">
-                        Comprar
-                    </a>
+
+                    <button
+                        class="buy-btn"
+                        onclick="addToCart(
+                            'Resina Epoxy A:B - 100 ml',
+                            4500,
+                            'img/epoxy/epoxy_100ml_1.png'
+                        )"
+                    >
+                        Agregar al carrito
+                    </button>
+
 
                 </div>
+
 
             </div>
 
 
-            <!-- RESINA EPOXY 160 ML -->
+            <!-- =====================================
+                 EPOXY 160 ML
+            ====================================== -->
 
             <div class="product">
 
+
                 <div class="product-image">
+
 
                     <img
                         src="img/epoxy/epoxy_0.png"
                         alt="Resina Epoxy"
                         class="active"
                     >
+
 
                     <img
                         src="img/epoxy/epoxy_160ml_2.png"
                         alt="Resina Epoxy 160 ml"
                     >
 
+
                     <button
                         class="carousel-btn carousel-prev"
                         onclick="changeImage(this, -1)"
@@ -462,6 +990,7 @@
                     >
                         ‹
                     </button>
+
 
                     <button
                         class="carousel-btn carousel-next"
@@ -471,55 +1000,78 @@
                         ›
                     </button>
 
+
                     <div class="carousel-dots">
 
                         <span class="carousel-dot active"></span>
+
                         <span class="carousel-dot"></span>
 
                     </div>
 
+
                 </div>
 
+
                 <div class="product-info">
+
 
                     <h2>
                         Resina Epoxy A:B
                     </h2>
 
+
                     <p class="presentation">
                         Presentación: 160 ml
                     </p>
+
 
                     <div class="price">
                         ₡6,000
                     </div>
 
-                    <a href="#" class="buy-btn">
-                        Comprar
-                    </a>
+
+                    <button
+                        class="buy-btn"
+                        onclick="addToCart(
+                            'Resina Epoxy A:B - 160 ml',
+                            6000,
+                            'img/epoxy/epoxy_160ml_2.png'
+                        )"
+                    >
+                        Agregar al carrito
+                    </button>
+
 
                 </div>
+
 
             </div>
 
 
-            <!-- RESINA EPOXY 200 ML -->
+            <!-- =====================================
+                 EPOXY 200 ML
+            ====================================== -->
 
             <div class="product">
 
+
                 <div class="product-image">
+
 
                     <img
                         src="img/epoxy/epoxy_0.png"
                         alt="Resina Epoxy"
                         class="active"
                     >
+
 
                     <img
                         src="img/epoxy/epoxy_200ml_3.png"
                         alt="Resina Epoxy 200 ml"
                     >
 
+
                     <button
                         class="carousel-btn carousel-prev"
                         onclick="changeImage(this, -1)"
@@ -527,6 +1079,7 @@
                     >
                         ‹
                     </button>
+
 
                     <button
                         class="carousel-btn carousel-next"
@@ -536,55 +1089,78 @@
                         ›
                     </button>
 
+
                     <div class="carousel-dots">
 
                         <span class="carousel-dot active"></span>
+
                         <span class="carousel-dot"></span>
 
                     </div>
 
+
                 </div>
 
+
                 <div class="product-info">
+
 
                     <h2>
                         Resina Epoxy A:B
                     </h2>
 
+
                     <p class="presentation">
                         Presentación: 200 ml
                     </p>
+
 
                     <div class="price">
                         ₡7,500
                     </div>
 
-                    <a href="#" class="buy-btn">
-                        Comprar
-                    </a>
+
+                    <button
+                        class="buy-btn"
+                        onclick="addToCart(
+                            'Resina Epoxy A:B - 200 ml',
+                            7500,
+                            'img/epoxy/epoxy_200ml_3.png'
+                        )"
+                    >
+                        Agregar al carrito
+                    </button>
+
 
                 </div>
+
 
             </div>
 
 
-            <!-- RESINA EPOXY 500 ML -->
+            <!-- =====================================
+                 EPOXY 500 ML
+            ====================================== -->
 
             <div class="product">
 
+
                 <div class="product-image">
+
 
                     <img
                         src="img/epoxy/epoxy_0.png"
                         alt="Resina Epoxy"
                         class="active"
                     >
+
 
                     <img
                         src="img/epoxy/epoxy_500ml_4.png"
                         alt="Resina Epoxy 500 ml"
                     >
 
+
                     <button
                         class="carousel-btn carousel-prev"
                         onclick="changeImage(this, -1)"
@@ -592,6 +1168,7 @@
                     >
                         ‹
                     </button>
+
 
                     <button
                         class="carousel-btn carousel-next"
@@ -601,43 +1178,64 @@
                         ›
                     </button>
 
+
                     <div class="carousel-dots">
 
                         <span class="carousel-dot active"></span>
+
                         <span class="carousel-dot"></span>
 
                     </div>
 
+
                 </div>
 
+
                 <div class="product-info">
+
 
                     <h2>
                         Resina Epoxy A:B
                     </h2>
 
+
                     <p class="presentation">
                         Presentación: 500 ml
                     </p>
+
 
                     <div class="price">
                         ₡12,500
                     </div>
 
-                    <a href="#" class="buy-btn">
-                        Comprar
-                    </a>
+
+                    <button
+                        class="buy-btn"
+                        onclick="addToCart(
+                            'Resina Epoxy A:B - 500 ml',
+                            12500,
+                            'img/epoxy/epoxy_500ml_4.png'
+                        )"
+                    >
+                        Agregar al carrito
+                    </button>
+
 
                 </div>
+
 
             </div>
 
 
-            <!-- RESINA EPOXY 1000 ML -->
+            <!-- =====================================
+                 EPOXY 1000 ML
+            ====================================== -->
 
             <div class="product">
 
+
                 <div class="product-image">
+
 
                     <img
                         src="img/epoxy/epoxy_0.png"
@@ -645,10 +1243,12 @@
                         class="active"
                     >
 
+
                     <img
                         src="img/epoxy/epoxy_1000ml_5.png"
                         alt="Resina Epoxy 1000 ml"
                     >
+
 
                     <button
                         class="carousel-btn carousel-prev"
@@ -658,6 +1258,7 @@
                         ‹
                     </button>
 
+
                     <button
                         class="carousel-btn carousel-next"
                         onclick="changeImage(this, 1)"
@@ -666,34 +1267,51 @@
                         ›
                     </button>
 
+
                     <div class="carousel-dots">
 
                         <span class="carousel-dot active"></span>
+
                         <span class="carousel-dot"></span>
 
                     </div>
 
+
                 </div>
 
+
                 <div class="product-info">
+
 
                     <h2>
                         Resina Epoxy A:B
                     </h2>
 
+
                     <p class="presentation">
                         Presentación: 1000 ml
                     </p>
+
 
                     <div class="price">
                         ₡25,000
                     </div>
 
-                    <a href="#" class="buy-btn">
-                        Comprar
-                    </a>
+
+                    <button
+                        class="buy-btn"
+                        onclick="addToCart(
+                            'Resina Epoxy A:B - 1000 ml',
+                            25000,
+                            'img/epoxy/epoxy_1000ml_5.png'
+                        )"
+                    >
+                        Agregar al carrito
+                    </button>
+
 
                 </div>
+
 
             </div>
 
@@ -706,6 +1324,7 @@
         <div class="disclaimer">
 
             <strong>Aviso:</strong>
+
             Las imágenes mostradas son únicamente ilustrativas.
             El producto, color, presentación, empaque o apariencia
             pueden variar ligeramente respecto a las imágenes publicadas.
@@ -716,6 +1335,97 @@
 
 
     </main>
+
+
+    <!-- =========================================
+         CARRITO
+    ========================================== -->
+
+    <div
+        class="cart-overlay"
+        id="cartOverlay"
+        onclick="closeCart(event)"
+    >
+
+
+        <div
+            class="cart"
+            onclick="event.stopPropagation()"
+        >
+
+
+            <div class="cart-header">
+
+                <h2>
+                    🛒 Mi carrito
+                </h2>
+
+
+                <button
+                    class="close-cart"
+                    onclick="closeCart()"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <div
+                class="cart-items"
+                id="cartItems"
+            >
+
+            </div>
+
+
+            <div class="cart-footer">
+
+
+                <div class="cart-subtotal">
+
+                    <span>
+                        Subtotal
+                    </span>
+
+                    <span id="cartSubtotal">
+                        ₡0
+                    </span>
+
+                </div>
+
+
+                <div class="cart-total">
+
+                    <span>
+                        Total
+                    </span>
+
+                    <span
+                        class="cart-total-value"
+                        id="cartTotal"
+                    >
+                        ₡0
+                    </span>
+
+                </div>
+
+
+                <button
+                    class="checkout-btn"
+                    onclick="checkoutWhatsApp()"
+                >
+                    Finalizar pedido por WhatsApp
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
 
 
     <!-- FOOTER -->
@@ -733,24 +1443,40 @@
     </footer>
 
 
-    <!-- JAVASCRIPT DEL CARRUSEL -->
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
 
     <script>
 
+
+        /* =========================================
+           CARRUSEL
+        ========================================= */
+
         function changeImage(button, direction) {
 
-            const carousel = button.closest(".product-image");
 
-            const images = carousel.querySelectorAll("img");
+            const carousel =
+                button.closest(".product-image");
 
-            const dots = carousel.querySelectorAll(".carousel-dot");
+
+            const images =
+                carousel.querySelectorAll("img");
+
+
+            const dots =
+                carousel.querySelectorAll(".carousel-dot");
+
 
             let currentIndex = 0;
 
 
             images.forEach((image, index) => {
 
-                if (image.classList.contains("active")) {
+                if (
+                    image.classList.contains("active")
+                ) {
 
                     currentIndex = index;
 
@@ -759,47 +1485,467 @@
             });
 
 
-            let newIndex = currentIndex + direction;
+            let newIndex =
+                currentIndex + direction;
 
 
             if (newIndex < 0) {
 
-                newIndex = images.length - 1;
+                newIndex =
+                    images.length - 1;
 
             }
 
 
-            if (newIndex >= images.length) {
+            if (
+                newIndex >= images.length
+            ) {
 
                 newIndex = 0;
 
             }
 
 
-            images.forEach((image) => {
+            images.forEach(image => {
 
                 image.classList.remove("active");
 
             });
 
 
-            dots.forEach((dot) => {
+            dots.forEach(dot => {
 
                 dot.classList.remove("active");
 
             });
 
 
-            images[newIndex].classList.add("active");
+            images[newIndex]
+                .classList
+                .add("active");
 
 
             if (dots[newIndex]) {
 
-                dots[newIndex].classList.add("active");
+                dots[newIndex]
+                    .classList
+                    .add("active");
 
             }
 
         }
+
+
+        /* =========================================
+           CARRITO
+        ========================================= */
+
+        let cart =
+            JSON.parse(
+                localStorage.getItem(
+                    "resinStoreCart"
+                )
+            ) || [];
+
+
+        /* AGREGAR */
+
+        function addToCart(
+            name,
+            price,
+            image
+        ) {
+
+
+            const existingProduct =
+                cart.find(
+                    product =>
+                        product.name === name
+                );
+
+
+            if (existingProduct) {
+
+                existingProduct.quantity++;
+
+            }
+
+            else {
+
+                cart.push({
+
+                    name: name,
+
+                    price: price,
+
+                    image: image,
+
+                    quantity: 1
+
+                });
+
+            }
+
+
+            saveCart();
+
+            updateCart();
+
+            openCart();
+
+        }
+
+
+        /* GUARDAR */
+
+        function saveCart() {
+
+            localStorage.setItem(
+
+                "resinStoreCart",
+
+                JSON.stringify(cart)
+
+            );
+
+        }
+
+
+        /* ACTUALIZAR */
+
+        function updateCart() {
+
+
+            const cartItems =
+                document.getElementById(
+                    "cartItems"
+                );
+
+
+            const cartCount =
+                document.getElementById(
+                    "cartCount"
+                );
+
+
+            const cartSubtotal =
+                document.getElementById(
+                    "cartSubtotal"
+                );
+
+
+            const cartTotal =
+                document.getElementById(
+                    "cartTotal"
+                );
+
+
+            cartItems.innerHTML = "";
+
+
+            let total = 0;
+
+            let totalQuantity = 0;
+
+
+            /* VACIO */
+
+            if (cart.length === 0) {
+
+
+                cartItems.innerHTML = `
+
+                    <div class="empty-cart">
+
+                        <div class="empty-cart-icon">
+                            🛒
+                        </div>
+
+                        <h3>
+                            Tu carrito está vacío
+                        </h3>
+
+                        <p>
+                            Agrega productos para comenzar.
+                        </p>
+
+                    </div>
+
+                `;
+
+            }
+
+
+            /* PRODUCTOS */
+
+            cart.forEach(
+                (product, index) => {
+
+
+                const subtotal =
+                    product.price *
+                    product.quantity;
+
+
+                total += subtotal;
+
+
+                totalQuantity +=
+                    product.quantity;
+
+
+                cartItems.innerHTML += `
+
+                    <div class="cart-item">
+
+
+                        <div class="cart-item-image">
+
+                            <img
+                                src="${product.image}"
+                                alt="${product.name}"
+                            >
+
+                        </div>
+
+
+                        <div class="cart-item-info">
+
+
+                            <h3>
+                                ${product.name}
+                            </h3>
+
+
+                            <div class="cart-item-price">
+
+                                ₡${product.price.toLocaleString("es-CR")}
+
+                            </div>
+
+
+                            <div class="quantity-controls">
+
+
+                                <button
+                                    class="quantity-btn"
+                                    onclick="changeQuantity(${index}, -1)"
+                                >
+                                    −
+                                </button>
+
+
+                                <span class="quantity">
+                                    ${product.quantity}
+                                </span>
+
+
+                                <button
+                                    class="quantity-btn"
+                                    onclick="changeQuantity(${index}, 1)"
+                                >
+                                    +
+                                </button>
+
+
+                                <button
+                                    class="remove-btn"
+                                    onclick="removeFromCart(${index})"
+                                >
+                                    Eliminar
+                                </button>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+                `;
+
+            });
+
+
+            cartCount.textContent =
+                totalQuantity;
+
+
+            cartSubtotal.textContent =
+                "₡" +
+                total.toLocaleString(
+                    "es-CR"
+                );
+
+
+            cartTotal.textContent =
+                "₡" +
+                total.toLocaleString(
+                    "es-CR"
+                );
+
+        }
+
+
+        /* CAMBIAR CANTIDAD */
+
+        function changeQuantity(
+            index,
+            amount
+        ) {
+
+
+            cart[index].quantity +=
+                amount;
+
+
+            if (
+                cart[index].quantity <= 0
+            ) {
+
+                cart.splice(index, 1);
+
+            }
+
+
+            saveCart();
+
+            updateCart();
+
+        }
+
+
+        /* ELIMINAR */
+
+        function removeFromCart(index) {
+
+
+            cart.splice(index, 1);
+
+
+            saveCart();
+
+            updateCart();
+
+        }
+
+
+        /* ABRIR */
+
+        function openCart() {
+
+            document
+                .getElementById(
+                    "cartOverlay"
+                )
+                .classList
+                .add("active");
+
+        }
+
+
+        /* CERRAR */
+
+        function closeCart(event) {
+
+
+            if (
+                !event ||
+                event.target ===
+                document.getElementById(
+                    "cartOverlay"
+                )
+            ) {
+
+                document
+                    .getElementById(
+                        "cartOverlay"
+                    )
+                    .classList
+                    .remove("active");
+
+            }
+
+        }
+
+
+        /* =========================================
+           WHATSAPP
+        ========================================= */
+
+        function checkoutWhatsApp() {
+
+
+            if (cart.length === 0) {
+
+
+                alert(
+                    "Tu carrito está vacío."
+                );
+
+
+                return;
+
+            }
+
+
+            let message =
+                "Hola, quiero realizar el siguiente pedido:%0A%0A";
+
+
+            let total = 0;
+
+
+            cart.forEach(product => {
+
+
+                const subtotal =
+                    product.price *
+                    product.quantity;
+
+
+                total += subtotal;
+
+
+                message +=
+                    "• " +
+                    product.name +
+                    " x" +
+                    product.quantity +
+                    " - ₡" +
+                    subtotal.toLocaleString(
+                        "es-CR"
+                    ) +
+                    "%0A";
+
+            });
+
+
+            message +=
+                "%0ATotal: ₡" +
+                total.toLocaleString(
+                    "es-CR"
+                );
+
+
+            window.open(
+
+                "https://wa.me/50688888888?text=" +
+                message,
+
+                "_blank"
+
+            );
+
+        }
+
+
+        /* INICIALIZAR */
+
+        updateCart();
+
 
     </script>
 
