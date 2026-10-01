@@ -9,6 +9,7 @@
 
     <title>Pigmentos | ResinStore</title>
 
+
     <style>
 
         * {
@@ -17,13 +18,17 @@
             box-sizing: border-box;
         }
 
+
         body {
             font-family: Arial, Helvetica, sans-serif;
             background: #f7f7f7;
             color: #222;
         }
 
-        /* HEADER */
+
+        /* =========================================
+           HEADER
+        ========================================== */
 
         header {
             background: white;
@@ -34,6 +39,7 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.08);
         }
 
+
         .logo {
             display: flex;
             align-items: center;
@@ -42,16 +48,19 @@
             font-weight: bold;
         }
 
+
         .logo img {
             width: 45px;
             height: 45px;
             object-fit: contain;
         }
 
+
         nav {
             display: flex;
             align-items: center;
         }
+
 
         nav a {
             text-decoration: none;
@@ -60,12 +69,15 @@
             font-weight: 500;
         }
 
+
         nav a:hover {
             color: #8e44ad;
         }
 
 
-        /* CARRITO */
+        /* =========================================
+           CARRITO HEADER
+        ========================================== */
 
         .cart-button {
             margin-left: 25px;
@@ -79,9 +91,11 @@
             cursor: pointer;
         }
 
+
         .cart-button:hover {
             background: #732d91;
         }
+
 
         .cart-count {
             background: white;
@@ -93,11 +107,14 @@
         }
 
 
-        /* CONTENIDO */
+        /* =========================================
+           CONTENIDO
+        ========================================== */
 
         .container {
             padding: 60px 8%;
         }
+
 
         .back {
             display: inline-block;
@@ -107,15 +124,18 @@
             font-weight: bold;
         }
 
+
         .back:hover {
             text-decoration: underline;
         }
+
 
         h1 {
             text-align: center;
             margin-bottom: 15px;
             font-size: 40px;
         }
+
 
         .description {
             text-align: center;
@@ -125,7 +145,9 @@
         }
 
 
-        /* PRODUCTOS */
+        /* =========================================
+           PRODUCTOS
+        ========================================== */
 
         .products {
             display: grid;
@@ -134,48 +156,206 @@
         }
 
 
-        /* PRODUCTO VACIO */
-
-        .empty {
-            grid-column: 1 / -1;
-
+        .product {
             background: white;
-
-            padding: 60px 20px;
-
-            text-align: center;
-
             border-radius: 12px;
-
+            overflow: hidden;
             box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
         }
 
 
-        .empty-icon {
-            font-size: 60px;
-
-            margin-bottom: 20px;
+        .product:hover {
+            transform: translateY(-5px);
         }
 
 
-        .empty h2 {
+        /* =========================================
+           CARRUSEL
+        ========================================== */
+
+        .product-image {
+            width: 100%;
+            height: 260px;
+            background: #f5f5f5;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: none;
+        }
+
+
+        .product-image img.active {
+            display: block;
+        }
+
+
+        /* =========================================
+           BOTONES DEL CARRUSEL
+        ========================================== */
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+
+            width: 35px;
+            height: 35px;
+
+            border: none;
+            border-radius: 50%;
+
+            background: rgba(0,0,0,0.55);
+            color: white;
+
+            font-size: 24px;
+            line-height: 35px;
+
+            cursor: pointer;
+
+            z-index: 2;
+
+            opacity: 0;
+            transition: opacity 0.2s, background 0.2s;
+        }
+
+
+        .product-image:hover .carousel-btn {
+            opacity: 1;
+        }
+
+
+        .carousel-btn:hover {
+            background: rgba(0,0,0,0.8);
+        }
+
+
+        .carousel-prev {
+            left: 10px;
+        }
+
+
+        .carousel-next {
+            right: 10px;
+        }
+
+
+        /* =========================================
+           INDICADORES
+        ========================================== */
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+
+            z-index: 2;
+        }
+
+
+        .carousel-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.25);
+        }
+
+
+        .carousel-dot.active {
+            background: #8e44ad;
+        }
+
+
+        /* =========================================
+           INFORMACION DEL PRODUCTO
+        ========================================== */
+
+        .product-info {
+            padding: 20px;
+        }
+
+
+        .product-info h2 {
+            font-size: 20px;
             margin-bottom: 10px;
         }
 
 
-        .empty p {
+        .product-size {
             color: #666;
+            margin-bottom: 15px;
+        }
+
+
+        .price {
+            font-size: 22px;
+            font-weight: bold;
+            color: #8e44ad;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+
+
+        /* =========================================
+           BOTON AGREGAR AL CARRITO
+        ========================================== */
+
+        .buy-btn {
+            display: block;
+            width: 100%;
+            background: #8e44ad;
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+
+        .buy-btn:hover {
+            background: #732d91;
+        }
+
+
+        /* =========================================
+           DISCLAIMER
+        ========================================== */
+
+        .disclaimer {
+            margin-top: 40px;
+            padding: 15px 20px;
+            background: #f0f0f0;
+            border-radius: 8px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
         }
 
 
         /* =========================================
            CARRITO
-        ========================================= */
+        ========================================== */
 
         .cart-overlay {
-
             position: fixed;
-
             top: 0;
             left: 0;
 
@@ -187,19 +367,15 @@
             display: none;
 
             z-index: 999;
-
         }
 
 
         .cart-overlay.active {
-
             display: block;
-
         }
 
 
         .cart {
-
             position: fixed;
 
             top: 0;
@@ -218,7 +394,6 @@
             flex-direction: column;
 
             animation: cartOpen 0.25s ease;
-
         }
 
 
@@ -235,34 +410,28 @@
         }
 
 
-        /* CABECERA */
+        /* =========================================
+           CABECERA DEL CARRITO
+        ========================================== */
 
         .cart-header {
-
             display: flex;
-
             justify-content: space-between;
-
             align-items: center;
 
             padding: 20px;
 
             border-bottom: 1px solid #eee;
-
         }
 
 
         .cart-header h2 {
-
             font-size: 24px;
-
         }
 
 
         .close-cart {
-
             border: none;
-
             background: none;
 
             font-size: 30px;
@@ -270,40 +439,34 @@
             cursor: pointer;
 
             color: #555;
-
         }
 
 
-        /* ITEMS */
+        /* =========================================
+           PRODUCTOS DEL CARRITO
+        ========================================== */
 
         .cart-items {
-
             flex: 1;
-
             overflow-y: auto;
 
             padding: 20px;
-
         }
 
 
         .cart-item {
-
             display: flex;
 
             gap: 12px;
 
             padding-bottom: 20px;
-
             margin-bottom: 20px;
 
             border-bottom: 1px solid #eee;
-
         }
 
 
         .cart-item-image {
-
             width: 75px;
             height: 75px;
 
@@ -312,71 +475,55 @@
             border-radius: 8px;
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
 
             overflow: hidden;
 
             flex-shrink: 0;
-
         }
 
 
         .cart-item-image img {
-
             width: 100%;
-
             height: 100%;
 
             object-fit: contain;
-
         }
 
 
         .cart-item-info {
-
             flex: 1;
-
         }
 
 
         .cart-item-info h3 {
-
             font-size: 16px;
-
             margin-bottom: 5px;
-
         }
 
 
         .cart-item-price {
-
             color: #8e44ad;
-
             font-weight: bold;
 
             margin-bottom: 8px;
-
         }
 
 
-        /* CANTIDADES */
+        /* =========================================
+           CANTIDADES
+        ========================================== */
 
         .quantity-controls {
-
             display: flex;
-
             align-items: center;
 
             gap: 8px;
-
         }
 
 
         .quantity-btn {
-
             width: 28px;
             height: 28px;
 
@@ -389,34 +536,27 @@
             cursor: pointer;
 
             font-size: 18px;
-
         }
 
 
         .quantity-btn:hover {
-
             background: #f0f0f0;
-
         }
 
 
         .quantity {
-
             min-width: 25px;
 
             text-align: center;
 
             font-weight: bold;
-
         }
 
 
         .remove-btn {
-
             margin-left: auto;
 
             border: none;
-
             background: none;
 
             color: #d9534f;
@@ -424,52 +564,46 @@
             cursor: pointer;
 
             font-size: 14px;
-
         }
 
 
         .remove-btn:hover {
-
             text-decoration: underline;
-
         }
 
 
-        /* CARRITO VACIO */
+        /* =========================================
+           CARRITO VACIO
+        ========================================== */
 
         .empty-cart {
-
             text-align: center;
 
             padding: 60px 20px;
 
             color: #777;
-
         }
 
 
         .empty-cart-icon {
-
             font-size: 60px;
 
             margin-bottom: 20px;
-
         }
 
 
-        /* FOOTER CARRITO */
+        /* =========================================
+           FOOTER DEL CARRITO
+        ========================================== */
 
         .cart-footer {
-
             padding: 20px;
 
             border-top: 1px solid #eee;
-
         }
 
 
         .cart-subtotal {
-
             display: flex;
 
             justify-content: space-between;
@@ -477,12 +611,10 @@
             font-size: 18px;
 
             margin-bottom: 10px;
-
         }
 
 
         .cart-total {
-
             display: flex;
 
             justify-content: space-between;
@@ -492,21 +624,19 @@
             font-weight: bold;
 
             margin-bottom: 20px;
-
         }
 
 
         .cart-total-value {
-
             color: #8e44ad;
-
         }
 
 
-        /* WHATSAPP */
+        /* =========================================
+           WHATSAPP
+        ========================================== */
 
         .checkout-btn {
-
             display: block;
 
             width: 100%;
@@ -526,21 +656,19 @@
             font-weight: bold;
 
             cursor: pointer;
-
         }
 
 
         .checkout-btn:hover {
-
             background: #1ebe5d;
-
         }
 
 
-        /* FOOTER */
+        /* =========================================
+           FOOTER
+        ========================================== */
 
         footer {
-
             margin-top: 60px;
 
             background: #222;
@@ -550,25 +678,22 @@
             padding: 40px 8%;
 
             text-align: center;
-
         }
 
 
         footer p {
-
             margin-bottom: 8px;
-
         }
 
 
-        /* RESPONSIVE */
+        /* =========================================
+           RESPONSIVE
+        ========================================== */
 
         @media (max-width: 900px) {
 
             .products {
-
                 grid-template-columns: repeat(2, 1fr);
-
             }
 
         }
@@ -577,64 +702,53 @@
         @media (max-width: 600px) {
 
             header {
-
                 flex-direction: column;
 
                 gap: 15px;
-
             }
 
 
             nav {
-
                 flex-wrap: wrap;
 
                 justify-content: center;
 
                 gap: 10px;
-
             }
 
 
             nav a {
-
                 margin: 0 8px;
-
             }
 
 
             .cart-button {
-
                 margin-left: 8px;
-
             }
 
 
             .container {
-
                 padding: 40px 5%;
-
             }
 
 
             h1 {
-
                 font-size: 32px;
-
             }
 
 
             .products {
-
                 grid-template-columns: 1fr;
+            }
 
+
+            .carousel-btn {
+                opacity: 1;
             }
 
 
             .cart {
-
                 width: 100%;
-
             }
 
         }
@@ -647,10 +761,11 @@
 <body>
 
 
-    <!-- HEADER -->
+    <!-- =========================================
+         HEADER
+    ========================================== -->
 
     <header>
-
 
         <div class="logo">
 
@@ -668,16 +783,13 @@
 
         <nav>
 
-
             <a href="index.html">
                 Inicio
             </a>
 
-
             <a href="index.html#categorias">
                 Categorías
             </a>
-
 
             <a href="index.html#contacto">
                 Contacto
@@ -702,14 +814,14 @@
 
             </button>
 
-
         </nav>
-
 
     </header>
 
 
-    <!-- CONTENIDO -->
+    <!-- =========================================
+         CONTENIDO
+    ========================================== -->
 
     <main class="container">
 
@@ -728,35 +840,122 @@
 
 
         <p class="description">
-            Explora nuestros pigmentos para resina.
+            Explora nuestros pigmentos y colorantes.
         </p>
 
 
-        <!-- PRODUCTOS -->
+        <!-- =====================================
+             PRODUCTOS
+        ====================================== -->
 
         <div class="products">
 
 
-            <div class="empty">
+            <!-- =====================================
+                 PIGMENTO / COLORANTE 5 ML
+            ====================================== -->
+
+            <div class="product">
 
 
-                <div class="empty-icon">
-                    🎨
+                <!-- CARRUSEL -->
+
+                <div class="product-image">
+
+
+                    <img
+                        src="img/pigmentos/pigmentos_1.png"
+                        alt="Pigmento / Colorante 5 ml"
+                        class="active"
+                    >
+
+
+                    <button
+                        class="carousel-btn carousel-prev"
+                        onclick="changeImage(this, -1)"
+                        aria-label="Imagen anterior"
+                    >
+                        ‹
+                    </button>
+
+
+                    <button
+                        class="carousel-btn carousel-next"
+                        onclick="changeImage(this, 1)"
+                        aria-label="Imagen siguiente"
+                    >
+                        ›
+                    </button>
+
+
+                    <div class="carousel-dots">
+
+                        <span class="carousel-dot active"></span>
+
+                    </div>
+
+
                 </div>
 
 
-                <h2>
-                    Agotado.
-                </h2>
+                <!-- INFORMACION -->
+
+                <div class="product-info">
 
 
-                <p>
-                    Estamos preparando nuestros productos de pigmentos.
-                </p>
+                    <h2>
+                        Pigmento / Colorante
+                    </h2>
+
+
+                    <p class="product-size">
+                        Presentación: 5 ml
+                    </p>
+
+
+                    <!-- PRECIO -->
+
+                    <div class="price">
+                        ₡1,500
+                    </div>
+
+
+                    <!-- AGREGAR AL CARRITO -->
+
+                    <button
+                        class="buy-btn"
+                        onclick="addToCart(
+                            'Pigmento / Colorante - 5 ml',
+                            1500,
+                            'img/pigmentos/pigmentos_1.png'
+                        )"
+                    >
+                        Agregar al carrito
+                    </button>
+
+
+                </div>
 
 
             </div>
 
+
+        </div>
+
+
+        <!-- =========================================
+             DISCLAIMER
+        ========================================== -->
+
+        <div class="disclaimer">
+
+            <strong>Aviso:</strong>
+
+            Las imágenes mostradas son únicamente ilustrativas.
+            El producto, color, presentación, empaque o apariencia
+            pueden variar ligeramente respecto a las imágenes publicadas.
+            La disponibilidad y características del producto estarán
+            sujetas al inventario.
 
         </div>
 
@@ -785,7 +984,6 @@
 
             <div class="cart-header">
 
-
                 <h2>
                     🛒 Mi carrito
                 </h2>
@@ -797,7 +995,6 @@
                 >
                     ×
                 </button>
-
 
             </div>
 
@@ -863,20 +1060,19 @@
     </div>
 
 
-    <!-- FOOTER -->
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
 
     <footer>
-
 
         <p>
             © 2026 ResinStore
         </p>
 
-
         <p>
             Todos los derechos reservados.
         </p>
-
 
     </footer>
 
@@ -889,9 +1085,87 @@
 
 
         /* =========================================
-           CARRITO
-        ========================================= */
+           CARRUSEL
+        ========================================== */
 
+        function changeImage(button, direction) {
+
+
+            const carousel =
+                button.closest(".product-image");
+
+
+            const images =
+                carousel.querySelectorAll("img");
+
+
+            const dots =
+                carousel.querySelectorAll(".carousel-dot");
+
+
+            let currentIndex = 0;
+
+
+            images.forEach((image, index) => {
+
+                if (image.classList.contains("active")) {
+
+                    currentIndex = index;
+
+                }
+
+            });
+
+
+            let newIndex =
+                currentIndex + direction;
+
+
+            if (newIndex < 0) {
+
+                newIndex =
+                    images.length - 1;
+
+            }
+
+
+            if (newIndex >= images.length) {
+
+                newIndex = 0;
+
+            }
+
+
+            images.forEach((image) => {
+
+                image.classList.remove("active");
+
+            });
+
+
+            dots.forEach((dot) => {
+
+                dot.classList.remove("active");
+
+            });
+
+
+            images[newIndex].classList.add("active");
+
+
+            if (dots[newIndex]) {
+
+                dots[newIndex].classList.add("active");
+
+            }
+
+        }
+
+
+
+        /* =========================================
+           CARRITO
+        ========================================== */
 
         let cart =
             JSON.parse(
@@ -902,7 +1176,7 @@
 
         /* =========================================
            AGREGAR PRODUCTO
-        ========================================= */
+        ========================================== */
 
         function addToCart(name, price, image) {
 
@@ -947,18 +1221,14 @@
 
 
         /* =========================================
-           GUARDAR
-        ========================================= */
+           GUARDAR CARRITO
+        ========================================== */
 
         function saveCart() {
 
-
             localStorage.setItem(
-
                 "resinStoreCart",
-
                 JSON.stringify(cart)
-
             );
 
         }
@@ -966,8 +1236,8 @@
 
 
         /* =========================================
-           ACTUALIZAR
-        ========================================= */
+           ACTUALIZAR CARRITO
+        ========================================== */
 
         function updateCart() {
 
@@ -1051,7 +1321,6 @@
                     product.quantity;
 
 
-
                 cartItems.innerHTML += `
 
                     <div class="cart-item">
@@ -1124,7 +1393,7 @@
 
                 `;
 
-            }
+            });
 
 
 
@@ -1155,7 +1424,7 @@
 
         /* =========================================
            CAMBIAR CANTIDAD
-        ========================================= */
+        ========================================== */
 
         function changeQuantity(index, amount) {
 
@@ -1179,8 +1448,8 @@
 
 
         /* =========================================
-           ELIMINAR
-        ========================================= */
+           ELIMINAR PRODUCTO
+        ========================================== */
 
         function removeFromCart(index) {
 
@@ -1197,8 +1466,8 @@
 
 
         /* =========================================
-           ABRIR
-        ========================================= */
+           ABRIR CARRITO
+        ========================================== */
 
         function openCart() {
 
@@ -1212,8 +1481,8 @@
 
 
         /* =========================================
-           CERRAR
-        ========================================= */
+           CERRAR CARRITO
+        ========================================== */
 
         function closeCart(event) {
 
@@ -1236,8 +1505,8 @@
 
 
         /* =========================================
-           WHATSAPP
-        ========================================= */
+           FINALIZAR PEDIDO POR WHATSAPP
+        ========================================== */
 
         function checkoutWhatsApp() {
 
@@ -1260,7 +1529,6 @@
 
 
             let total = 0;
-
 
 
             cart.forEach(product => {
@@ -1286,20 +1554,15 @@
             });
 
 
-
             message +=
                 "%0ATotal: ₡" +
                 total.toLocaleString("es-CR");
 
 
-
             window.open(
-
                 "https://wa.me/50686486432?text=" +
                 message,
-
                 "_blank"
-
             );
 
         }
@@ -1307,8 +1570,8 @@
 
 
         /* =========================================
-           INICIALIZAR
-        ========================================= */
+           INICIALIZAR CARRITO
+        ========================================== */
 
         updateCart();
 
